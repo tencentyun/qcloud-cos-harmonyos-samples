@@ -18,7 +18,8 @@ export class UploadHelper {
    */
   public static async uploadFileByTask(context: common.Context, media: MediaBean, progressCallback: (uploadedSize: number, totalSize: number) => void) {
     // 获取直传签名等数据
-    let directTransferData: any = await UploadHelper.getStsDirectSign(MediaHelper.getFileExtension(media.fileName));
+    let ext = MediaHelper.getFileExtension(media.fileName);
+    let directTransferData: any = await UploadHelper.getStsDirectSign(ext);
     if (directTransferData == null) {
       promptAction.showToast({ message: 'getStsDirectSign fail' });
       return;
@@ -48,7 +49,7 @@ export class UploadHelper {
           "Host": cosHost
         },
         method: "PUT",
-        files: [{ filename: "test", name: "test", uri: realuri, type: "jpg" }],
+        files: [{ filename: media.fileName, name: "file", uri: realuri, type: ext }],
         data: []
       };
       // 开始上传
