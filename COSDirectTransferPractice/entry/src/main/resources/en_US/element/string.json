@@ -1,0 +1,16 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "COSDirectTransfer"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "COSDirectTransfer"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "COSDirectTransfer"
+    }
+  ]
+}
